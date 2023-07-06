@@ -20,7 +20,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Http fetching"),
+        title: const Text("json fetching"),
       ),
       body: Center(
         child: Column(
@@ -61,7 +61,6 @@ class _MyHomePageState extends State<MyHomePage> {
       final response = await http.get(Uri.parse(pathUrl));
 
       if (response.statusCode == 200 || response.statusCode == 201) {
-
         final jsonData = jsonDecode(response.body);
         final movieList = jsonData['results'];
         final movieListLength = Random().nextInt(movieList.length);
